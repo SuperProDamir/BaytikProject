@@ -27,7 +27,8 @@ IPointerHoverHandler
 {
 	private const string LOG_TAG = "WaveVR_HelloVR";
 	Vector3 originalPos;
-	WaveVR_Controller.EDeviceType curFocusControllerType = WaveVR_Controller.EDeviceType.Head;
+	// ** WaveVR_Controller.EDeviceType curFocusControllerType = WaveVR_Controller.EDeviceType.Head;
+	WaveVR_Controller.EDeviceType curFocusControllerType = WaveVR_Controller.EDeviceType.Dominant;
     private WaveVR_PermissionManager pmInstance = null;
 	public  bool isControllerFocus_R;
 	public bool  isControllerFocus_L;
