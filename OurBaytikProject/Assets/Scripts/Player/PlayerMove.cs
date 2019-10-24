@@ -56,7 +56,7 @@ IPointerHoverHandler
                 WaveVR_Controller.Input(curFocusControllerType).GetPressDown(WVR_InputId.WVR_InputId_Alias1_Digital_Trigger) ||
                 WaveVR_Controller.Input(curFocusControllerType).GetPressDown(WVR_InputId.WVR_InputId_Alias1_Trigger))
             {
-                ChangePos();
+                //ChangePos();
             }
         }
     }

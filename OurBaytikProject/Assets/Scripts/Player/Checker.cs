@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Checker : MonoBehaviour
 {
+    [SerializeField]
+    GameObject lockerObject;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,11 +15,18 @@ public class Checker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    public void ButtonPressed()
+    public void LockerPressed()
     {
         Debug.Log("Button was pressed");
+        if (lockerObject.activeSelf == false)
+            lockerObject.SetActive(true);
+    }
+
+    public void OpenDoor()
+    {
+        Debug.Log("Door was opened");
     }
 }
