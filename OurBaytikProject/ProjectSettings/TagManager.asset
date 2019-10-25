@@ -6,6 +6,7 @@ TagManager:
   tags:
   - EventCanvas
   - Road
+  - Grab
   layers:
   - Default
   - TransparentFX

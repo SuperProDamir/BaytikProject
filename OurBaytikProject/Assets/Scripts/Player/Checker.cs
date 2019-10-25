@@ -6,6 +6,10 @@ public class Checker : MonoBehaviour
 {
     [SerializeField]
     GameObject lockerObject;
+    [SerializeField]
+    Transform lockerImage;
+
+    public bool haveKeys = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,8 +25,10 @@ public class Checker : MonoBehaviour
     public void LockerPressed()
     {
         Debug.Log("Button was pressed");
-        if (lockerObject.activeSelf == false)
+        if (lockerObject.activeSelf == false && Vector3.Distance(lockerImage.position, transform.position) <= 1 && haveKeys)
+        {
             lockerObject.SetActive(true);
+        }
     }
 
     public void OpenDoor()

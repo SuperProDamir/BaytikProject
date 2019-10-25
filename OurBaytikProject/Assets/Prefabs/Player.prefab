@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &735324068
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 735324069}
+  m_Layer: 0
+  m_Name: Arm
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &735324069
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 735324068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.501, z: 0.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1106069424528936210}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1106069424528936211
 GameObject:
   m_ObjectHideFlags: 0
@@ -11,9 +41,10 @@ GameObject:
   - component: {fileID: 1106069424528936210}
   - component: {fileID: 1106069424528936204}
   - component: {fileID: 1106069424528936207}
+  - component: {fileID: 5372302284689166361}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,6 +60,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 735324069}
   - {fileID: 1101689622606407148}
   - {fileID: 1101637508884772475}
   m_Father: {fileID: 0}
@@ -61,6 +93,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lockerObject: {fileID: 0}
+  lockerImage: {fileID: 0}
+  haveKeys: 0
+--- !u!114 &5372302284689166361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1106069424528936211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2396c4a08232bf04bab753de67cdd401, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 0}
 --- !u!1001 &1106069424424775827
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -102,7 +149,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4575283832211176, guid: c6c23447d97cdec47ae26a8552bf2607, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4575283832211176, guid: c6c23447d97cdec47ae26a8552bf2607, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -118,11 +165,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 114214961028118876, guid: c6c23447d97cdec47ae26a8552bf2607,
         type: 3}
-      propertyPath: ControllerComponents
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114214961028118876, guid: c6c23447d97cdec47ae26a8552bf2607,
-        type: 3}
       propertyPath: useBeamSystemConfig
       value: 0
       objectReference: {fileID: 0}
@@ -135,21 +177,6 @@ PrefabInstance:
         type: 3}
       propertyPath: EndColor.rgba
       value: 1306697511
-      objectReference: {fileID: 0}
-    - target: {fileID: 114214961028118876, guid: c6c23447d97cdec47ae26a8552bf2607,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114214961028118876, guid: c6c23447d97cdec47ae26a8552bf2607,
-        type: 3}
-      propertyPath: TrackRotation
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114214961028118876, guid: c6c23447d97cdec47ae26a8552bf2607,
-        type: 3}
-      propertyPath: adaptiveLoading
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6c23447d97cdec47ae26a8552bf2607, type: 3}
@@ -200,7 +227,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4627396706692520, guid: 2607fe513a415124381fcf84b5b83646, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4627396706692520, guid: 2607fe513a415124381fcf84b5b83646, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -214,14 +241,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114465936970387870, guid: 2607fe513a415124381fcf84b5b83646,
-        type: 3}
-      propertyPath: useLoadingCanvas
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1344891592457118, guid: 2607fe513a415124381fcf84b5b83646, type: 3}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 20106595620663252, guid: 2607fe513a415124381fcf84b5b83646,
+        type: 3}
+      propertyPath: m_ClearFlags
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 20106595620663252, guid: 2607fe513a415124381fcf84b5b83646,
+        type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 20106595620663252, guid: 2607fe513a415124381fcf84b5b83646,
+        type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 20106595620663252, guid: 2607fe513a415124381fcf84b5b83646,
+        type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2607fe513a415124381fcf84b5b83646, type: 3}
