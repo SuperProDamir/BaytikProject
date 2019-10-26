@@ -1407,7 +1407,7 @@ MonoBehaviour:
   isControllerFocus: 0
   color: {r: 0, g: 0, b: 0, a: 0}
   isUnlocking: 0
-  isRed: 1
+  isRed: 0
 --- !u!1 &9006395124625277274
 GameObject:
   m_ObjectHideFlags: 0
