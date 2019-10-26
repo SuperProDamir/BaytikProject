@@ -7,6 +7,7 @@ TagManager:
   - EventCanvas
   - Road
   - Grab
+  - RedZone
   layers:
   - Default
   - TransparentFX

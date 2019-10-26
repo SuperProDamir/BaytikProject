@@ -25,10 +25,11 @@ public class Checker : MonoBehaviour
     public void LockerPressed()
     {
         Debug.Log("Button was pressed");
-        if (lockerObject.activeSelf == false && Vector3.Distance(lockerImage.position, transform.position) <= 1.5 && haveKeys)
+        if (lockerObject.activeSelf == false && Vector3.Distance(lockerImage.position, transform.position) <= 1.2 && haveKeys)
         {
             lockerObject.SetActive(true);
             lockerObject.transform.LookAt(transform);
+            lockerObject.transform.Rotate(new Vector3(0, 180, 0));
         }
     }
 

@@ -47,8 +47,9 @@ public class GrabController : MonoBehaviour
             {
                 Transform item = _hit.collider.transform;
                 item.SetParent(arm);
+                //item.rotation = Quaternion.identity;
                 item.localPosition = Vector3.zero;
-                item.localRotation = Quaternion.identity;
+                item.rotation = arm.rotation;
             }
         }
     }
