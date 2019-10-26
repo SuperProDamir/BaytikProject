@@ -18,22 +18,22 @@ IPointerHoverHandler
 {
     //private Ray ray;
     //private RaycastHit _hit;
-    GameObject player;
+    PlayerSets player;
     private GameObject m_RightController;
     public bool isControllerFocus;
     public Color color;
 
     [SerializeField]
-    private bool isUnlocking;
-    [SerializeField]
     private bool isRed;
+    [SerializeField]
+    private bool isFinish = true;
 
     WaveVR_Controller.EDeviceType curFocusControllerType = WaveVR_Controller.EDeviceType.Dominant;
 
     // Start is called before the first frame update
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerSets>();
     }
 
     // Update is called once per frame
@@ -41,18 +41,18 @@ IPointerHoverHandler
     {
         if (isControllerFocus)
         {
-            if (!isRed)
+            if (isRed == false)
             {
-                if (WaveVR_Controller.Input(curFocusControllerType).GetPress(WVR_InputId.WVR_InputId_Alias1_Touchpad))
+                if (WaveVR_Controller.Input(curFocusControllerType).GetPressDown(WVR_InputId.WVR_InputId_Alias1_Touchpad))
                 {
                     Unlocking();
-                }
-                if (WaveVR_Controller.Input(curFocusControllerType).GetPressUp(WVR_InputId.WVR_InputId_Alias1_Touchpad))
-                {
-                    Cancel();
+                    if (isFinish)
+                    {
+                        OpenDoor();
+                    }
                 }
             }
-            else
+            else if (player.isUnlocking)
             {
                 Cancel();
             }
@@ -69,12 +69,20 @@ IPointerHoverHandler
 
     private void Unlocking()
     {
-        isUnlocking = true;
+        player.isUnlocking = true;
+        Debug.Log("Unlocking...");
     }
 
     private void Cancel()
     {
-        isUnlocking = false;
+        player.isUnlocking = false;
+        Debug.Log("Is Canceling");
+    }
+
+    public void OpenDoor()
+    {
+        Debug.Log("Door was opened");
+        
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -94,7 +102,7 @@ IPointerHoverHandler
             {
                 if (isControllerFocus)
                 {
-                    GetComponent<MeshRenderer>().material.SetColor("_Color", color);
+                    //GetComponent<MeshRenderer>().material.SetColor("_Color", color);
                 }
             }
             curFocusControllerType = type;
@@ -119,9 +127,9 @@ IPointerHoverHandler
             }
         }
 
-        curFocusControllerType = WaveVR_Controller.EDeviceType.Head;
+        curFocusControllerType = WaveVR_Controller.EDeviceType.Dominant;
 
-        GetComponent<MeshRenderer>().material.SetColor("_Color", Color.white);
+        //GetComponent<MeshRenderer>().material.SetColor("_Color", Color.white);
     }
 
 

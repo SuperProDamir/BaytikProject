@@ -32,9 +32,4 @@ public class Checker : MonoBehaviour
             lockerObject.transform.Rotate(new Vector3(0, 180, 0));
         }
     }
-
-    public void OpenDoor()
-    {
-        Debug.Log("Door was opened");
-    }
 }

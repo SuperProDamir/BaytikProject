@@ -55,6 +55,7 @@ GameObject:
   - component: {fileID: 1106069424528936210}
   - component: {fileID: 1106069424528936204}
   - component: {fileID: 1106069424528936207}
+  - component: {fileID: 1988569681}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -108,6 +109,19 @@ MonoBehaviour:
   lockerObject: {fileID: 0}
   lockerImage: {fileID: 0}
   haveKeys: 0
+--- !u!114 &1988569681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1106069424528936211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1c3c5acc2827a646bd32e9791afe35a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isUnlocking: 0
 --- !u!1001 &1106069424424775827
 PrefabInstance:
   m_ObjectHideFlags: 0
