@@ -57,6 +57,10 @@ IPointerHoverHandler
                 Cancel();
             }
         }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            OpenDoor();
+        }
     }
 
     private void OnDrawGizmos()
@@ -82,7 +86,8 @@ IPointerHoverHandler
     public void OpenDoor()
     {
         Debug.Log("Door was opened");
-        
+        GameObject door = GameObject.Find("DoorPivot");
+        door.GetComponent<Animator>().SetBool("isOpen", true);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -127,7 +132,7 @@ IPointerHoverHandler
             }
         }
 
-        curFocusControllerType = WaveVR_Controller.EDeviceType.Dominant;
+        curFocusControllerType = WaveVR_Controller.EDeviceType.Head;
 
         //GetComponent<MeshRenderer>().material.SetColor("_Color", Color.white);
     }
