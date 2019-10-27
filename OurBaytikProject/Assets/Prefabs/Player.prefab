@@ -211,6 +211,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaveVR
       objectReference: {fileID: 0}
+    - target: {fileID: 1127982831019630, guid: 2607fe513a415124381fcf84b5b83646, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 4627396706692520, guid: 2607fe513a415124381fcf84b5b83646, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -258,11 +262,6 @@ PrefabInstance:
     - target: {fileID: 1344891592457118, guid: 2607fe513a415124381fcf84b5b83646, type: 3}
       propertyPath: m_TagString
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 20106595620663252, guid: 2607fe513a415124381fcf84b5b83646,
-        type: 3}
-      propertyPath: m_ClearFlags
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 20106595620663252, guid: 2607fe513a415124381fcf84b5b83646,
         type: 3}

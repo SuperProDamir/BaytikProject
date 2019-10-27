@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using wvr;
 
 public class Checker : MonoBehaviour
 {
@@ -8,6 +10,8 @@ public class Checker : MonoBehaviour
     GameObject lockerObject;
     [SerializeField]
     Transform lockerImage;
+
+    WaveVR_Controller.EDeviceType curFocusControllerType = WaveVR_Controller.EDeviceType.Dominant;
 
     public bool haveKeys = false;
     // Start is called before the first frame update
@@ -19,7 +23,12 @@ public class Checker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (WaveVR_Controller.Input(curFocusControllerType).GetPressDown(WVR_InputId.WVR_InputId_Alias1_Trigger) ||
+            WaveVR_Controller.Input(curFocusControllerType).GetPressDown(WVR_InputId.WVR_InputId_Alias1_Digital_Trigger) ||
+            Input.GetKeyDown(KeyCode.K))
+        {
+            SceneManager.LoadScene("2");
+        }
     }
 
     public void LockerPressed()
@@ -30,6 +39,14 @@ public class Checker : MonoBehaviour
             lockerObject.SetActive(true);
             lockerObject.transform.LookAt(transform);
             lockerObject.transform.Rotate(new Vector3(0, 180, 0));
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.tag.Equals("Trigger"))
+        {
+            SceneManager.LoadScene("2");
         }
     }
 }

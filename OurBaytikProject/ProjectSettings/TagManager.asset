@@ -8,6 +8,8 @@ TagManager:
   - Road
   - Grab
   - RedZone
+  - Body
+  - Trigger
   layers:
   - Default
   - TransparentFX
