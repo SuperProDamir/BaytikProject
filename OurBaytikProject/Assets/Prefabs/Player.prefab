@@ -106,6 +106,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isUnlocking: 0
+  password: 000000000000000000000000
+  nicePassword: 030000000100000002000000
 --- !u!1001 &1106069424424775827
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -261,6 +263,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_BackGroundColor.b
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 20106595620663252, guid: 2607fe513a415124381fcf84b5b83646,
+        type: 3}
+      propertyPath: m_TargetEye
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2607fe513a415124381fcf84b5b83646, type: 3}
