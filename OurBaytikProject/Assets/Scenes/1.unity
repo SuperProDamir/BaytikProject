@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 112000000, guid: 4d868bc28fb9d924798d0ff7caa6d84e,
     type: 2}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1518,7 +1518,7 @@ PrefabInstance:
     - target: {fileID: 20782606885120634, guid: 5163cfccfc176e145a055c41504d8eb5,
         type: 3}
       propertyPath: m_TargetEye
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5163cfccfc176e145a055c41504d8eb5, type: 3}
@@ -2458,7 +2458,7 @@ PrefabInstance:
     - target: {fileID: 1089557335237666704, guid: b8f69ed479a5b8541af06c801ae669a5,
         type: 3}
       propertyPath: m_TargetEye
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1066308227343305167, guid: b8f69ed479a5b8541af06c801ae669a5,
         type: 3}
