@@ -3,21 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using wvr;
+using System;
 
 public class Checker : MonoBehaviour
 {
     [SerializeField]
     GameObject lockerObject;
-    [SerializeField]
-    Transform lockerImage;
+
+     Animator doorPivot;
+
+    PlayerSets player;
 
     WaveVR_Controller.EDeviceType curFocusControllerType = WaveVR_Controller.EDeviceType.Dominant;
 
     public bool haveKeys = false;
+    
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = GetComponent<PlayerSets>();
+        doorPivot = GameObject.Find("DoorPivot").GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -29,6 +35,14 @@ public class Checker : MonoBehaviour
         {
             SceneManager.LoadScene("2");
         }
+    }
+
+    public void PassKey(string s)
+    {
+        string[] n = s.Split('_');
+        int column = Convert.ToInt32(n[0]);
+        int row = Convert.ToInt32(n[1]);
+        player.password[column - 1] = row;
     }
 
     public void LockerPressed()
@@ -44,6 +58,26 @@ public class Checker : MonoBehaviour
 
     public void OpenDoor()
     {
+        if (player.password.Equals(player.correctPassword))
+        {
+            doorPivot.SetBool("isOpen", true);
+        }
+        else 
+        {
+            player.password = new int[3] { 0, 0, 0};
+        }
+    }
 
+    public void TeleporterPressed()
+    {
+        transform.position += Vector3.forward;
+        StartCoroutine(teleport());
+    }
+
+    IEnumerator teleport()
+    {
+        yield return new WaitForSeconds(2f);
+
+        SceneManager.LoadScene(1);
     }
 }

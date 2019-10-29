@@ -519,6 +519,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1765191851}
     m_Modifications:
+    - target: {fileID: 1962041164266716, guid: c6c23447d97cdec47ae26a8552bf2607, type: 3}
+      propertyPath: m_Name
+      value: ControllerLoader
+      objectReference: {fileID: 0}
     - target: {fileID: 4575283832211176, guid: c6c23447d97cdec47ae26a8552bf2607, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -562,10 +566,6 @@ PrefabInstance:
     - target: {fileID: 4575283832211176, guid: c6c23447d97cdec47ae26a8552bf2607, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1962041164266716, guid: c6c23447d97cdec47ae26a8552bf2607, type: 3}
-      propertyPath: m_Name
-      value: ControllerLoader
       objectReference: {fileID: 0}
     - target: {fileID: 114214961028118876, guid: c6c23447d97cdec47ae26a8552bf2607,
         type: 3}
@@ -1809,6 +1809,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1127982831019630, guid: 2607fe513a415124381fcf84b5b83646, type: 3}
+      propertyPath: m_Name
+      value: WaveVR
+      objectReference: {fileID: 0}
     - target: {fileID: 4627396706692520, guid: 2607fe513a415124381fcf84b5b83646, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1853,10 +1857,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1127982831019630, guid: 2607fe513a415124381fcf84b5b83646, type: 3}
-      propertyPath: m_Name
-      value: WaveVR
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2607fe513a415124381fcf84b5b83646, type: 3}
 --- !u!4 &1765191851 stripped
@@ -1865,6 +1865,54 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1765191850}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1765191852 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1127982831019630, guid: 2607fe513a415124381fcf84b5b83646,
+    type: 3}
+  m_PrefabInstance: {fileID: 1765191850}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1765191853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1765191852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0fa589c8d638d2498ac622c4569921c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lockerObject: {fileID: 8829540995268110252}
+  lockerImage: {fileID: 0}
+  haveKeys: 0
+--- !u!114 &1765191854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1765191852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1c3c5acc2827a646bd32e9791afe35a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isUnlocking: 0
+--- !u!114 &1765191855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1765191852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27cbf70b505d67846b626e2f8ce9964c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isControllerFocus_R: 1
+  isControllerFocus_L: 0
 --- !u!1 &1852040292
 GameObject:
   m_ObjectHideFlags: 0
@@ -2410,7 +2458,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1765191853}
     - target: {fileID: 8829540995602336384, guid: d2173aba6b430944da203b4a0680f4f6,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -2940,3 +2988,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2173aba6b430944da203b4a0680f4f6, type: 3}
+--- !u!1 &8829540995268110252 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8829540995503534517, guid: d2173aba6b430944da203b4a0680f4f6,
+    type: 3}
+  m_PrefabInstance: {fileID: 8829540995268110251}
+  m_PrefabAsset: {fileID: 0}
