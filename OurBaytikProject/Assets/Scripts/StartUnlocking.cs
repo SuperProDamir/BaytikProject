@@ -19,7 +19,6 @@ IPointerHoverHandler
     //private Ray ray;
     //private RaycastHit _hit;
     PlayerSets player;
-    Checker checker;
     private GameObject m_RightController;
     public bool isControllerFocus;
     public Color color;
@@ -31,12 +30,10 @@ IPointerHoverHandler
 
     WaveVR_Controller.EDeviceType curFocusControllerType = WaveVR_Controller.EDeviceType.Dominant;
 
-    
     // Start is called before the first frame update
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerSets>();
-        checker = GameObject.FindGameObjectWithTag("Player").GetComponent<Checker>();
     }
 
     // Update is called once per frame
@@ -88,7 +85,9 @@ IPointerHoverHandler
 
     public void OpenDoor()
     {
-        checker.OpenDoor();
+        Debug.Log("Door was opened");
+        GameObject door = GameObject.Find("DoorPivot");
+        door.GetComponent<Animator>().SetBool("isOpen", true);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
