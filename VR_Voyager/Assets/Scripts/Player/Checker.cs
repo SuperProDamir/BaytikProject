@@ -55,8 +55,8 @@ public class Checker : MonoBehaviour
         {
             Debug.Log("Button Pressed");
             lockerObject.SetActive(true);
-            lockerObject.transform.LookAt(transform);
-            lockerObject.transform.Rotate(new Vector3(0, 180, 0));
+            // lockerObject.transform.LookAt(transform);
+            // lockerObject.transform.Rotate(new Vector3(0, 180, 0));
             lockerCanvas.SetActive(false);
 
         }

@@ -23,6 +23,7 @@ IPointerHoverHandler
     private Color firstColor;
     [SerializeField]
     private Transform controller;
+    private Transform parent;
 
 
     WaveVR_Controller.EDeviceType curFocusControllerType = WaveVR_Controller.EDeviceType.Dominant;
@@ -32,6 +33,8 @@ IPointerHoverHandler
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Checker>();
         firstColor = GetComponent<MeshRenderer>().material.color;
+        parent = transform.parent;
+        Debug.Log("!!! " + parent.name);
     }
 
     // Update is called once per frame
@@ -65,9 +68,10 @@ IPointerHoverHandler
         {
             controller = GameObject.Find("Generic_MC_R(Clone)").transform;
         }
-        transform.SetParent(controller);
-        transform.localPosition = new Vector3(0f, 0f, 0.18f);
-        transform.localRotation = Quaternion.identity;
+        parent.SetParent(controller);
+        parent.localPosition = new Vector3(0f, 0f, 0.18f);
+        parent.localRotation = Quaternion.identity;
+        // transform.localRotation = new Quaternion(0, 90f, 0, 1);
         player.haveKeys = true;
     }
 
