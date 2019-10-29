@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using wvr;
 using System;
+using System.Linq;
 
 public class Checker : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class Checker : MonoBehaviour
      Animator doorPivot;
 
     PlayerSets player;
+
+    [SerializeField]
+    GameObject lockerCanvas;
 
     WaveVR_Controller.EDeviceType curFocusControllerType = WaveVR_Controller.EDeviceType.Dominant;
 
@@ -47,20 +51,24 @@ public class Checker : MonoBehaviour
 
     public void LockerPressed()
     {
-        Debug.Log("Button was pressed");
         if (haveKeys)
         {
+            Debug.Log("Button Pressed");
             lockerObject.SetActive(true);
             lockerObject.transform.LookAt(transform);
             lockerObject.transform.Rotate(new Vector3(0, 180, 0));
+            lockerCanvas.SetActive(false);
+
         }
     }
 
     public void OpenDoor()
     {
-        if (player.password.Equals(player.correctPassword))
+        if (Enumerable.SequenceEqual(player.password, player.correctPassword))
         {
+            Debug.Log("Opened");
             doorPivot.SetBool("isOpen", true);
+            lockerObject.SetActive(false);
         }
         else 
         {

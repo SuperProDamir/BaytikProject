@@ -16,21 +16,22 @@ IEndDragHandler,
 IDropHandler,
 IPointerHoverHandler
 {
-    //private Ray ray;
-    //private RaycastHit _hit;
-    [SerializeField]
-    private Transform arm;
-    GameObject player;
+    Checker player;
     private GameObject m_RightController;
     public bool isControllerFocus;
     public Color color;
+    private Color firstColor;
+    [SerializeField]
+    private Transform controller;
+
 
     WaveVR_Controller.EDeviceType curFocusControllerType = WaveVR_Controller.EDeviceType.Dominant;
 
     // Start is called before the first frame update
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Checker>();
+        firstColor = GetComponent<MeshRenderer>().material.color;
     }
 
     // Update is called once per frame
@@ -38,7 +39,8 @@ IPointerHoverHandler
     {
         if (isControllerFocus)
         {
-            if (WaveVR_Controller.Input(curFocusControllerType).GetPressDown(WVR_InputId.WVR_InputId_Alias1_Touchpad))
+            if (WaveVR_Controller.Input(curFocusControllerType).GetPressDown(WVR_InputId.WVR_InputId_Alias1_Touchpad) ||
+                WaveVR_Controller.Input(curFocusControllerType).GetPressDown(WVR_InputId.WVR_InputId_Alias1_Trigger))
             {
                 GrabObject();
             }
@@ -59,18 +61,14 @@ IPointerHoverHandler
 
     private void GrabObject()
     {
-        transform.SetParent(arm);
-        transform.localPosition = Vector3.zero;
-        transform.Rotate(90, 0, 0);
-        player.GetComponent<Checker>().haveKeys = true;
-    }
-
-    private void PutObject()
-    {
-        if (arm.childCount > 0)
+        if (controller == null)
         {
-            arm.GetChild(0).SetParent(null);
+            controller = GameObject.Find("Generic_MC_R(Clone)").transform;
         }
+        transform.SetParent(controller);
+        transform.localPosition = new Vector3(0f, 0f, 0.18f);
+        transform.localRotation = Quaternion.identity;
+        player.haveKeys = true;
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -117,7 +115,7 @@ IPointerHoverHandler
 
         curFocusControllerType = WaveVR_Controller.EDeviceType.Head;
 
-        GetComponent<MeshRenderer>().material.SetColor("_Color", Color.white);
+        GetComponent<MeshRenderer>().material.SetColor("_Color", firstColor);
     }
 
 
