@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using WVR_Log;
 using wvr;
 
-public class GrabController_VR : MonoBehaviour,
+public class PistolGrabController_VR : MonoBehaviour,
 IPointerUpHandler,
 IPointerEnterHandler,
 IPointerExitHandler,
@@ -16,7 +16,8 @@ IEndDragHandler,
 IDropHandler,
 IPointerHoverHandler
 {
-    Checker player;
+    [SerializeField]
+    playerController player;
     private GameObject m_RightController;
     public bool isControllerFocus;
     public Color color;
@@ -24,6 +25,7 @@ IPointerHoverHandler
     [SerializeField]
     private Transform controller;
     private Transform parent;
+    bool canFocus = true;
 
 
     WaveVR_Controller.EDeviceType curFocusControllerType = WaveVR_Controller.EDeviceType.Dominant;
@@ -31,10 +33,10 @@ IPointerHoverHandler
     // Start is called before the first frame update
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Checker>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<playerController>();
         firstColor = GetComponent<MeshRenderer>().material.color;
         parent = transform.parent;
-        Debug.Log("!!! " + parent.name);
+        Debug.Log(parent.name);
     }
 
     // Update is called once per frame
@@ -42,7 +44,8 @@ IPointerHoverHandler
     {
         if (isControllerFocus)
         {
-            if (WaveVR_Controller.Input(curFocusControllerType).GetPressDown(WVR_InputId.WVR_InputId_Alias1_Touchpad))
+            if (WaveVR_Controller.Input(curFocusControllerType).GetPressDown(WVR_InputId.WVR_InputId_Alias1_Touchpad) ||
+                WaveVR_Controller.Input(curFocusControllerType).GetPressDown(WVR_InputId.WVR_InputId_Alias1_Trigger))
             {
                 GrabObject();
             }
@@ -53,25 +56,13 @@ IPointerHoverHandler
         }
     }
 
-    private void OnDrawGizmos()
-    {
-        if (Input.GetMouseButton(0))
-        {
-            // Gizmos.DrawRay(ray);
-        }
-    }
-
     private void GrabObject()
     {
-        if (controller == null)
+        if (!player.havePistol && canFocus)
         {
-            controller = GameObject.Find("Generic_MC_R(Clone)").transform;
+            player.PickPistol();
+            parent.gameObject.SetActive(false);
         }
-        parent.SetParent(controller);
-        parent.localPosition = new Vector3(0f, 0f, 0.18f);
-        parent.localRotation = Quaternion.identity;
-        // transform.localRotation = new Quaternion(0, 90f, 0, 1);
-        player.haveKeys = true;
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -150,6 +141,6 @@ IPointerHoverHandler
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        
+
     }
 }

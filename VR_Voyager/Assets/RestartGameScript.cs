@@ -22,8 +22,8 @@ public class RestartGameScript : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-         if (WaveVR_Controller.Input(curFocusControllerType).GetPressDown(WVR_InputId.WVR_InputId_Alias1_Back) ||
-            WaveVR_Controller.Input(curFocusControllerType).GetPressDown(WVR_InputId.WVR_InputId_Alias1_Volume_Down))
+         if /*(WaveVR_Controller.Input(curFocusControllerType).GetPressDown(WVR_InputId.WVR_InputId_Alias1_Back) ||*/
+            (WaveVR_Controller.Input(curFocusControllerType).GetPressDown(WVR_InputId.WVR_InputId_Alias1_Volume_Down))
         {
             RestartGame();
         }
@@ -32,6 +32,7 @@ public class RestartGameScript : MonoBehaviour
     private void RestartGame()
     {
         SceneManager.LoadScene(0);
+        Time.timeScale = 1f;
     }
 
 }

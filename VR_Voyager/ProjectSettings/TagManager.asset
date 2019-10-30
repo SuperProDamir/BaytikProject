@@ -8,6 +8,7 @@ TagManager:
   - Trigger
   - bullet
   - ppp
+  - playerBullet
   layers:
   - Default
   - TransparentFX
