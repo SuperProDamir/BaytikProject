@@ -9,7 +9,7 @@ public class GunSight : MonoBehaviour
     
     void Start()
     {
-        target = GameObject.Find("head").transform;
+        target = GameObject.FindGameObjectWithTag("ppp").transform;
     }
 
     

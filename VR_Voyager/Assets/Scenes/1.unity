@@ -3255,85 +3255,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5c17d2380951b4469aa82befe566154, type: 3}
---- !u!1001 &1457740810
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 8829540995268110255}
-    m_Modifications:
-    - target: {fileID: -927199367670048503, guid: fc0bfe9d5dfffe7468574145c2373166,
-        type: 3}
-      propertyPath: m_Name
-      value: ReshetkaMain (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: fc0bfe9d5dfffe7468574145c2373166,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.147
-      objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: fc0bfe9d5dfffe7468574145c2373166,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.573
-      objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: fc0bfe9d5dfffe7468574145c2373166,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -3.831
-      objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: fc0bfe9d5dfffe7468574145c2373166,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -6.123234e-17
-      objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: fc0bfe9d5dfffe7468574145c2373166,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: fc0bfe9d5dfffe7468574145c2373166,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 6.123234e-17
-      objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: fc0bfe9d5dfffe7468574145c2373166,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: -3.7493994e-33
-      objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: fc0bfe9d5dfffe7468574145c2373166,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: fc0bfe9d5dfffe7468574145c2373166,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: fc0bfe9d5dfffe7468574145c2373166,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: fc0bfe9d5dfffe7468574145c2373166,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: fc0bfe9d5dfffe7468574145c2373166,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: fc0bfe9d5dfffe7468574145c2373166,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.7
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: fc0bfe9d5dfffe7468574145c2373166, type: 3}
 --- !u!1 &1464664530
 GameObject:
   m_ObjectHideFlags: 0
@@ -3861,7 +3782,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4627396706692520, guid: 2607fe513a415124381fcf84b5b83646, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.179
+      value: 0.888
       objectReference: {fileID: 0}
     - target: {fileID: 4627396706692520, guid: 2607fe513a415124381fcf84b5b83646, type: 3}
       propertyPath: m_LocalRotation.x
@@ -3923,6 +3844,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lockerObject: {fileID: 8829540995268110252}
   lockerCanvas: {fileID: 8829540995268110253}
+  teleportedCanvas: {fileID: 819930897}
   haveKeys: 0
 --- !u!114 &1765191854
 MonoBehaviour:
@@ -3953,6 +3875,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isControllerFocus_R: 1
   isControllerFocus_L: 0
+--- !u!114 &1765191856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1765191852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f67c5ef8a37cf143bcc0ac0666d6d4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1852040292
 GameObject:
   m_ObjectHideFlags: 0

@@ -17,6 +17,8 @@ public class Checker : MonoBehaviour
 
     [SerializeField]
     GameObject lockerCanvas;
+    [SerializeField]
+    GameObject teleportedCanvas;
 
     WaveVR_Controller.EDeviceType curFocusControllerType = WaveVR_Controller.EDeviceType.Dominant;
 
@@ -78,7 +80,8 @@ public class Checker : MonoBehaviour
 
     public void TeleporterPressed()
     {
-        transform.position += Vector3.forward;
+        transform.position += new Vector3(0, 0, 1.5f);
+        teleportedCanvas.SetActive(false);
         StartCoroutine(teleport());
     }
 
