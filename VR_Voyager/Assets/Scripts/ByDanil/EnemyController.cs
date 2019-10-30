@@ -18,7 +18,7 @@ public class EnemyController : MonoBehaviour
     public float distance;
     void Start()
     {
-        target = GameObject.Find("head").transform;
+        target = GameObject.FindGameObjectWithTag("ppp").transform;
     }
 
     
@@ -64,7 +64,7 @@ public class EnemyController : MonoBehaviour
     }
     IEnumerator instObj()
     {
-        while (true)
+        for (int i = 0; i < 5; i++)
         {
             yield return new WaitForSeconds(shootTime);
             Shot();
@@ -75,7 +75,7 @@ public class EnemyController : MonoBehaviour
     public void Shot()
     {
         //GameObject bullet = Instantiate(prefabs, transform.position + Vector3.forward, transform.rotation);
-        GameObject bullet = Instantiate(prefabs, point.position, point.rotation);
+        GameObject bullet = Instantiate(prefabs, point.position, new Quaternion(point.rotation.x, point.rotation.y, point.rotation.z, point.rotation.w));
         Rigidbody rb = bullet.GetComponent<Rigidbody>();
         rb.AddForce(point.forward * force, ForceMode.Impulse);
         Destroy(bullet, time);
